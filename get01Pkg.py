@@ -15,9 +15,15 @@ def getBagMatrix(weights,values,pkgMaxCapacity):
              [ 0  0  6  6  9  9 12 12 15 15 15]]
     """
 
+    if not (isinstance(pkgMaxCapacity, int) and pkgMaxCapacity > 0 and
+            isinstance(weights, list) and isinstance(values, list) and
+            len(weights) == len(values)):
+        raise Exception("Invalid inputs")
+
+    if pkgMaxCapacity == 0:
+        return [[0]]
+
     itemNums = len(weights)
-    if not itemNums == len(values):
-        raise Exception("Not right numbers of weights and values")
     bagMatrix = np.zeros(itemNums * (pkgMaxCapacity + 1), np.int).reshape(itemNums, pkgMaxCapacity + 1)
     for currPkgCapacity in range(1, pkgMaxCapacity + 1):
         for idx, (itemWeight, itemValue) in enumerate(zip(weights, values)):

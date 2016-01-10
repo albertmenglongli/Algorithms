@@ -1,7 +1,6 @@
-import pdb
 def dfs(s, start,step,ip,result):
     if len(s) == start and step == 4:
-        result.append(ip[:-1:])
+        result.append(ip[:-1])
         return
     if start+4-step<= len(s) <= start+(4-step)*3 :
         num = 0

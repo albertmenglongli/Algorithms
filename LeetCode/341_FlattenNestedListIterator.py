@@ -34,14 +34,13 @@ class NestedIterator(object):
         self.nestedList = nestedList
         self.v = []
         self.flatten(nestedList)
-        self.idx = -1
 
     def flatten(self, nestedList):
         for i in nestedList:
             if i.isInteger():
                 self.v.append(i.getInteger())
             else:
-                self.flatten(i.getList()))
+                self.flatten(i.getList())
 
     def next(self):
         """

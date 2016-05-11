@@ -1,7 +1,21 @@
+"""
+>>> Solution.wordPattern('abba', 'dog cat cat dog')
+True
+>>> Solution.wordPattern('abba', 'dog cat cat fish')
+False
+>>> Solution.wordPattern('aaaa', 'dog cat cat dog')
+False
+>>> Solution.wordPattern('abba', 'dog dog dog dog')
+False
+>>> Solution.wordPattern('', 'beef')
+False
+"""
 import collections
 
+
 class Solution(object):
-    def wordPattern(self, pattern, string):
+    @staticmethod
+    def wordPattern(pattern, string):
         """
         :type pattern: str
         :type string: str
@@ -16,20 +30,14 @@ class Solution(object):
         my_set = set(zip(patternList, strList))
         dic = collections.defaultdict(str)
         for item in my_set:
-            if dic[item[0]] == '' or dic[item[0]] ==  item[1]:
+            if dic[item[0]] == '' or dic[item[0]] == item[1]:
                 dic[item[0]] = item[1]
             else:
                 return False
-        return True 
+        return True
 
-def main():
-    tests_cases = [('abba', 'dog cat cat dog', True),
-                   ('abba', 'dog cat cat fish', False),
-                   ('aaaa', 'dog cat cat dog', False),
-                   ('abba', 'dog dog dog dog', False),
-                   ('', 'beef', False)]
-    for pattern, string, result in tests_cases:
-        assert(Solution().wordPattern(pattern, string) is result)
 
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()

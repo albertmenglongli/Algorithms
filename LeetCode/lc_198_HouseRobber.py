@@ -1,12 +1,17 @@
 class Solution(object):
-    '''
+    """
     f(n) = max(f(n-1), f(n-2)+ v(n))
-    '''
+    """
 
-    def rob(self, nums):
+    @staticmethod
+    def rob(nums):
         """
         :type nums: List[int]
         :rtype: int
+        >>> Solution().rob([1, 2, 3])
+        4
+        >>> Solution().rob([])
+        0
         """
         if not nums:
             return 0
@@ -16,6 +21,8 @@ class Solution(object):
             table[idx] = max(table[idx - 1], table[idx - 2] + nums[idx - 1])
         return table[-1]
 
+
 if __name__ == "__main__":
-    assert(Solution().rob([1, 2, 3]) == 4)
-    assert (Solution().rob([]) == 0)
+    import doctest
+
+    doctest.testmod()

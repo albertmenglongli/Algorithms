@@ -1,8 +1,19 @@
 import collections
 
+
 class Solution(object):
     def removeDuplicateLetters(self, s):
-        if not s : return ''
+        """
+        :param s:
+        :return:
+        >>> Solution().removeDuplicateLetters('bcabc')
+        'abc'
+        >>> Solution().removeDuplicateLetters('cbacdcbc')
+        'acdb'
+        >>> Solution().removeDuplicateLetters('bcab')
+        'bca'
+        """
+        if not s: return ''
         counter = collections.Counter(s)
         ans = list()
         for c in s:
@@ -13,10 +24,8 @@ class Solution(object):
             ans.append(c)
         return ''.join(ans)
 
-def main():
-    assert(Solution().removeDuplicateLetters('bcabc') == 'abc')
-    assert(Solution().removeDuplicateLetters('cbacdcbc') == 'acdb')
-    assert(Solution().removeDuplicateLetters('bcab') == 'bca')
 
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()

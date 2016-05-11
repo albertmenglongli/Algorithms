@@ -1,4 +1,15 @@
+"""
+>>> nums = [-2, 0, 3, -5, 2, -1]
+>>> numArray = NumArray(nums)
+>>> numArray.sumRange(0, 2)
+1
+>>> numArray.sumRange(2, 5)
+-1
+>>> numArray.sumRange(0, 5)
+-3
+"""
 import copy
+
 
 class NumArray(object):
     def __init__(self, nums):
@@ -17,14 +28,10 @@ class NumArray(object):
         :type j: int
         :rtype: int
         """
-        return self.sum_array[j] if i == 0 else self.sum_array[j] - self.sum_array[i - 1] 
+        return self.sum_array[j] if i == 0 else self.sum_array[j] - self.sum_array[i - 1]
 
-def main():
-    nums = [-2, 0, 3, -5, 2, -1]
-    numArray = NumArray(nums)
-    assert(numArray.sumRange(0, 2) == 1)
-    assert(numArray.sumRange(2, 5) == -1)
-    assert(numArray.sumRange(0, 5) == -3)
 
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()

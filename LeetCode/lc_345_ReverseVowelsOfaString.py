@@ -1,9 +1,11 @@
 class Solution(object):
-
-    def reverseVowels(self, s):
+    @staticmethod
+    def reverseVowels(s):
         """
         :type s: str
         :rtype: str
+        >>> Solution.reverseVowels('leetcode')
+        'leotcede'
         """
         vowels = ('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U')
         s_list = list(s)

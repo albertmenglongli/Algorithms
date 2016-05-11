@@ -1,9 +1,11 @@
 class Solution(object):
-
-    def countBits(self, num):
+    @staticmethod
+    def countBits(num):
         """
         :type num: int
         :rtype: List[int]
+        >>> Solution.countBits(5)
+        [0, 1, 1, 2, 1, 2]
         """
         init_lst = [0]
         cnt = len(init_lst)
@@ -12,6 +14,8 @@ class Solution(object):
             cnt *= 2
         return init_lst[0: num + 1]
 
+
 if __name__ == "__main__":
-    print Solution().countBits(5)
-    # >> [0, 1, 1, 2, 1, 2]
+    import doctest
+
+    doctest.testmod()

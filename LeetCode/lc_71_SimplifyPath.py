@@ -1,4 +1,5 @@
 class Solution(object):
+
     @staticmethod
     def simplifyPath(path):
         """

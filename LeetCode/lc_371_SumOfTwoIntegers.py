@@ -12,9 +12,9 @@ class Solution(object):
         >>> Solution().getSum(-1, 1)
         0
         """
-        # 32 bits integer max
+        # 32 bits integer max, the first bit is for sign
         MAX = 0x7FFFFFFF
-        # 32 bits interger min
+        # 32 bits interger min (negative number)
         MIN = 0x80000000
         # mask to get last 32 bits
         mask = 0xFFFFFFFF

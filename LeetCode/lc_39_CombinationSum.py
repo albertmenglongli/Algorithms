@@ -16,7 +16,8 @@ class Solution(object):
         from copy import deepcopy
         remain = self.target - sum(result)
         if remain == 0:
-            return self.results.append(deepcopy(result))
+            self.results.append(deepcopy(result))
+            return
         if idx < 0:
             return
         ele = self.candidates[idx]

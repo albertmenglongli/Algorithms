@@ -18,7 +18,6 @@ class Solution(object):
                 head += 1
         first_idx,  second_idx = nums.index(sorted_nums[head]), nums.index(sorted_nums[tail])
         if first_idx == second_idx:
-            print first_idx, second_idx
             second_idx = nums.index(sorted_nums[tail], second_idx + 1)
         return [first_idx,  second_idx]
 

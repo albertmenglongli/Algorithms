@@ -1,0 +1,11 @@
+cycler==0.10.0
+decorator==4.0.9
+Gato==1.2.2
+Graphine==0.0
+matplotlib==1.5.3
+networkx==1.11
+numpy==1.10.4
+pyparsing==2.1.10
+python-dateutil==2.5.3
+pytz==2016.7
+six==1.10.0

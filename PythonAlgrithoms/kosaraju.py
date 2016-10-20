@@ -49,4 +49,6 @@ def draw_G(raw_G):
 if __name__ == "__main__":
     raw_G = generate_G()
     print scc(raw_G)
-    draw_G(raw_G)
+    # [set(['a', 'c', 'b', 'd']), set(['e', 'g', 'f']), set(['i', 'h'])]
+    
+    #draw_G(raw_G)

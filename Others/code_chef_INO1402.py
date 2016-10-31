@@ -1,3 +1,5 @@
+'''https://www.codechef.com/IOIPRAC/problems/INOI1402'''
+
 def build_graph(edge_info, num_V):
     G = [[float('inf') for _ in range(num_V)] for _ in range(num_V)]
     for v1, v2, w in edge_info:

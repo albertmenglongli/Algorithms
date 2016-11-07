@@ -4,7 +4,9 @@ from __future__ import print_function
 def merge_and_count(seq):
     '''
     Counting the number of inversions in the sequence 2,4,1,3,5. Each crossing pair of line segments corresponds
-    to one pair that is n the opposite order in the input list and the ascending list-in other words, an inversion.
+    to one pair that is in the opposite order in the input list and the ascending list-in other words, an inversion.
+    
+    O(nlogn)
 
     2   4   1   3   5
 
@@ -47,3 +49,5 @@ def merge_and_count(seq):
 
 if __name__ == "__main__":
     print(merge_and_count(seq=[2, 4, 1, 3, 5]))
+    # (3, [(2, 1), (4, 1), (4, 3)])
+   

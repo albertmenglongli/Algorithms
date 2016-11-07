@@ -20,13 +20,19 @@ def merge_and_count(seq):
 
     from collections import deque
 
-    def deque_split(d, nth):
+    def iter_split(d, nth, factory):
+        '''
+        :param d: iterable
+        :param nth: split from nth element
+        :param factory: convert to the proper return type, factory could be list or deque
+        :return:
+        '''
         import itertools
-        return deque(itertools.islice(d, nth)), deque(itertools.islice(d, nth, len(d)))
+        return factory(itertools.islice(d, nth)), factory(itertools.islice(d, nth, len(d)))
 
     def _merge_and_count(seq):
         mid = len(seq) // 2
-        lft, rgt = deque_split(seq, mid)
+        lft, rgt = iter_split(seq, mid, deque)
         if len(lft) > 1: lft = _merge_and_count(lft)
         if len(rgt) > 1: rgt = _merge_and_count(rgt)
         result = []
@@ -50,4 +56,3 @@ def merge_and_count(seq):
 if __name__ == "__main__":
     print(merge_and_count(seq=[2, 4, 1, 3, 5]))
     # (3, [(2, 1), (4, 1), (4, 3)])
-   

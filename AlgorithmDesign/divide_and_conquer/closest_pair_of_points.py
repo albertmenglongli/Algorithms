@@ -79,8 +79,8 @@ def closest_pair(points):
             mid_idx = len(points) // 2
 
             # partition the points into left and right parts, both parts are ordered by x-coordinate
-            left_points = sorted(points[mid_idx:], key=lambda p: p.x)
-            right_points = sorted(points[:mid_idx], key=lambda p: p.x)
+            left_points = points[mid_idx:]
+            right_points = points[:mid_idx]
 
             # calculate the closest pair of points in each part separately
             (p1, p2) = closest_pair_rec(left_points)

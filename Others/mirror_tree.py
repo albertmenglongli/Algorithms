@@ -48,7 +48,6 @@ def in_order(root):
         if node.right:
             cur = node.right
             stack.append(cur)
-
     return seq
 
 
@@ -75,7 +74,6 @@ def post_order(root):
             stack.append(cur.left)
         if cur.right:
             stack.append(cur.right)
-
     return reversed_seq[::-1]
 
 

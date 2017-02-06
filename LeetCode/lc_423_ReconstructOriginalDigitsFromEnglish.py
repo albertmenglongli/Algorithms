@@ -84,6 +84,7 @@ class Solution2:
         # 利用多元一次不定方程进行求解
         x = np.linalg.lstsq(a, b)
         results = []
+        # 移除掉其他的非整数解，只保留整数解，完整的流程应该是仅保留正整数解
         for r in x:
             if not isinstance(r, Iterable):
                 continue

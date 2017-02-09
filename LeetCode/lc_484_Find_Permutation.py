@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+# https://leetcode.com/problems/find-permutation/
 class Solution(object):
     def findPermutation(self, s):
         """
@@ -12,7 +13,7 @@ class Solution(object):
             if s[c] == 'I':
                 # 如果下一个数是递增的, 直接将新的最大值追加到末尾, 新的最大值为 c + 2
                 output.append(c + 2)
-                # 告诉下一次循环, 上一次的数字不是递减的, 连续可追溯到的D的索引
+                # 告诉下一次循环, 上一次的数字不是递减的, idx_of_last_adjacent_D 表示连续可追溯到的D的索引
                 idx_of_last_adjacent_D = 'N/A'
             elif s[c] == 'D':
                 # 如果下一个数是减小的, 分两种情况
@@ -30,6 +31,3 @@ class Solution(object):
                     output.insert(idx_of_last_adjacent_D, c + 2)
             c += 1
         return output
-
-
-print Solution().findPermutation("DDIIDI")

@@ -18,13 +18,15 @@ class Solution(object):
                 idx_of_first_brother = idx
                 break
 
-        # find the first child,
+        # assign first child to root.left, if there exists
         # if the idx of first sibling is not found, the idx will be the n -- length of elements,
         # so all the remaining of the elements will be the elements[0]'s children
         # current_length + 1 + len(root.value) means the length of for_now_string_length + len('/' + root.value)
+
+        # if the first sibling is just next to elements[0], which means that there's no children for the current root elements[0]
         root.left = self.dfs_build_tree([e[1:] for e in elements[1:idx_of_first_brother]], current_length + 1 + len(root.value))
 
-        # build the sibling
+        # assign first sibling to root.right, if there exists
         root.right = self.dfs_build_tree(elements[idx_of_first_brother:], current_length)
 
         if root.left is None and '.' in root.value:

@@ -9,7 +9,6 @@ class Solution(object):
         self.m = m
         self.n = n
         self.table = [[None] * n for _ in range(m)]
-        self.rank = [[0] * n for _ in range(m)]
         self.cnt = 0
         result = []
         for pos in positions:

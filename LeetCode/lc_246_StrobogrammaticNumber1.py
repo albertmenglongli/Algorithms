@@ -14,20 +14,21 @@ class Solution(object):
         n = len(num)
         s = 0
         e = n - 1
-        while s <= e:
-            if s == e:
-                if not num[s] in ('0', '1', '8'):
-                    return False
-                else:
-                    return True
+        while s < e:
             if not num[s] in mapping:
                 return False
             if mapping[num[s]] != num[e]:
                 return False
-
             s += 1
             e -= 1
 
-        return True
+        if s == e:
+            if not num[s] in ('0', '1', '8'):
+                return False
+            else:
+                return True
+        else:
+            return True
+
 
 print Solution().isStrobogrammatic('11')

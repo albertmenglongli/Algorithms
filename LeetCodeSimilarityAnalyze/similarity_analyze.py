@@ -1,8 +1,9 @@
 import os
 from collections import defaultdict
 import itertools
+from collections import Counter
 txts = os.listdir('.')
-companies_files = [(e.replace('_leetcode.txt', ''), e) for e in txts if e.endswith('txt')]
+companies_files = [(e.replace('_leetcode.txt', ''), e) for e in txts if e.endswith('leetcode.txt')]
 data = defaultdict(list)
 for company, file in companies_files:
     with open(file) as f:
@@ -24,3 +25,7 @@ for p1, p2 in itertools.combinations(companies, 2):
     print compute_jaccard_index(data[p1], data[p2])
     print
 
+numbers = []
+for k, v in data.items():
+    numbers.extend(list(v))
+print Counter(numbers)

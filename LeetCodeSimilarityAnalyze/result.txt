@@ -1,0 +1,62 @@
+google apple :
+0.0263157894737
+
+google twitter :
+0.0949720670391
+
+google linkedin :
+0.0294117647059
+
+google airbnb :
+0.0441988950276
+
+google facebook :
+0.132743362832
+
+google microsoft :
+0.063829787234
+
+apple twitter :
+0.0727272727273
+
+apple linkedin :
+0.106060606061
+
+apple airbnb :
+0.0612244897959
+
+apple facebook :
+0.0917431192661
+
+apple microsoft :
+0.141414141414
+
+twitter linkedin :
+0.0422535211268
+
+twitter airbnb :
+0.127659574468
+
+twitter facebook :
+0.142857142857
+
+twitter microsoft :
+0.0754716981132
+
+linkedin airbnb :
+0.0634920634921
+
+linkedin facebook :
+0.135593220339
+
+linkedin microsoft :
+0.132743362832
+
+airbnb facebook :
+0.0660377358491
+
+airbnb microsoft :
+0.0594059405941
+
+facebook microsoft :
+0.242857142857

@@ -1,3 +1,5 @@
+(Copied from book: Dynamic Programming for Coding Interviews: A Bottom-Up approach to problem solving)
+
 # Solving DP Problems
 
 ## Finding if DP is Applicable

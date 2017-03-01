@@ -1,4 +1,5 @@
 class Solution(object):
+
     def f(self, n):
         if n < 0:
             return 0
@@ -38,7 +39,6 @@ class Solution(object):
         # if n = 13:
         # array looks like
         # [0, 0, 0, 1, 0, 1, 1, 0, 2, 1, 2, 3, 1, 5]
-        print array
         return array[n]
 
 

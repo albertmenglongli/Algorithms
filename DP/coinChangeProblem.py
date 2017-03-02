@@ -1,6 +1,17 @@
-class Solution(object):
+def memo(func):
+    cache = {}
 
+    def wrap(*args):
+        if args not in cache:
+            cache[args] = func(*args)
+        return cache[args]
+
+    return wrap
+
+
+class Solution(object):
     def find_min_number_of_combination_recurse(self, coins, s):
+        @memo
         def _find(total):
             if total < 0:
                 return float('inf')
@@ -41,17 +52,20 @@ class Solution(object):
 coins = [1, 2, 5, 10, 20, 50]
 s = 65
 
+assert Solution().find_min_number_of_combination_recurse(coins, s) == 3
 assert Solution().find_dp_using_table(coins, s) == 3
 assert Solution().find_dp_using_array(coins, s) == 3
 
 coins = [1, 2, 5, 10, 12, 20, 50]
 s = 65
 
+assert Solution().find_min_number_of_combination_recurse(coins, s) == 3
 assert Solution().find_dp_using_table(coins, s) == 3
 assert Solution().find_dp_using_array(coins, s) == 3
 
 coins = [1, 5, 6, 9]
 s = 11
 
+assert Solution().find_min_number_of_combination_recurse(coins, s) == 2
 assert Solution().find_dp_using_table(coins, s) == 2
 assert Solution().find_dp_using_array(coins, s) == 2

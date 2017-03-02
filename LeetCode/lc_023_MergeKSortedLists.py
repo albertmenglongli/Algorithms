@@ -43,25 +43,14 @@ class Solution(object):
         def divide_conquer(lists):
             if not lists:
                 return None
+            if len(lists) == 1:
+                return lists[0]
 
             length = len(lists)
             mid = length / 2
 
-            left_parts = lists[:mid]
-            if len(left_parts) > 1:
-                left_root = divide_conquer(left_parts)
-            elif len(left_parts) == 1:
-                left_root = left_parts[0]
-            else:
-                left_root = None
-
-            right_parts = lists[mid:]
-            if len(right_parts) > 1:
-                right_root = divide_conquer(right_parts)
-            elif len(right_parts) == 1:
-                right_root = right_parts[0]
-            else:
-                right_root = None
+            left_root = divide_conquer(lists[:mid])
+            right_root = divide_conquer(lists[mid:])
 
             new_root = mergeTwoLists(left_root, right_root)
             return new_root

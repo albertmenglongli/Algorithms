@@ -9,7 +9,14 @@ table = [[0] * m for _ in range(n)]
 
 ```
 # table with row idx: 0 ... n, and column idx: 0 ... m
+# table of (n + 1) * (m + 1)
 table = [[0] * (m + 1) for _ in range(n + 1)]
+```
+
+```
+# table of n x m
+import numpy as np
+table = np.zeros((n, m), int)
 ```
 
 ## bisect/ bisearch

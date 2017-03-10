@@ -116,8 +116,20 @@ class Bunch(dict):
 
 Node = Bunch
 n = Node(value=1, left=Node(value=2, left=None, right=None), right=Node(value=3, left=None, right=None))
-print n
-# {'right': {'right': None, 'value': 3, 'left': None}, 'value': 1, 'left': {'right': None, 'value': 2, 'left': None}}
+
+# {
+#     "right": {
+#         "right": None,
+#         "value": 3,
+#         "left": None
+#     },
+#     "value": 1,
+#     "left": {
+#         "right": None,
+#         "value": 2,
+#         "left": None
+#     }
+# }
 ```
 
 ## division

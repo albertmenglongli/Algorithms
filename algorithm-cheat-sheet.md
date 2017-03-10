@@ -108,6 +108,18 @@ dict.fromkeys(['a','b','c'], -1)
 dict(zip(keys, values))
 ```
 
+```
+class Bunch(dict):
+    def __init__(self, *args, **kwargs):
+        super(Bunch, self).__init__(*args, **kwargs)
+        self.__dict__ = self
+
+Node = Bunch
+n = Node(value=1, left=Node(value=2, left=None, right=None), right=Node(value=3, left=None, right=None))
+print n
+# {'right': {'right': None, 'value': 3, 'left': None}, 'value': 1, 'left': {'right': None, 'value': 2, 'left': None}}
+```
+
 ## division
 
 ```

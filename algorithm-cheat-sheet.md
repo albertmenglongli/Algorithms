@@ -132,10 +132,37 @@ n = Node(value=1, left=Node(value=2, left=None, right=None), right=Node(value=3,
 # }
 ```
 
+## deque
+```
+from collections import deque
+q = deque()
+q.append(1)
+q.appendleft(-1)
+q.pop()
+q.popleft()
+q.extend([4, 5, 6])
+q.extendleft([3, 2, 1])
+```
+
 ## division
 
 ```
 -3 / -4 = -1 # -> float('-inf')
+```
+
+## heapq
+
+```
+import heapq
+
+heapq.heapify(heap)
+heappush(heap, item)
+heapq.heappush(heap, (weight, obj))
+heapq.heappop()
+heapq.nlargest(n, iterable[, key])
+heapq.nsmallest(n, iterable[, key])
+heapq.heappushpop(h, item) # push, then pop
+heapq.heapreplace(h, item) # pop, then push
 ```
 
 ## math
@@ -148,12 +175,40 @@ math.ceil(1.3) # 2
 math.floor(1.3) #1
 ```
 
+#OrderedDict
+
+```
+from collections import OrderedDict
+d = OrderedDict()
+d.popitem(last=True)
+```
+
 ## random
 
 ```
 import random
 random.random() # [0.0, 1.0)
 random.randint(0, 5) # 0, 1, 2, 3, 4
+```
+
+## set
+
+```
+s.update(iterable)
+s.add(item)
+s.remove(item)
+s.discard(item) # remove if exist else do nothing
+s.difference(*iterables) # -
+s.difference_update(*iterables)
+s.intersection(*iterables) # +
+```
+
+## sort
+
+```
+a = range(5, -1, -1)
+a.sort()  # sort in-place
+b = sorted(a)  # return a new sorted list
 ```
 
 ## while-loop

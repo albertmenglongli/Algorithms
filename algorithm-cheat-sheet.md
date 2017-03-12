@@ -154,7 +154,6 @@ q.extendleft([3, 2, 1])
 
 ```
 import heapq
-
 heapq.heapify(heap)
 heappush(heap, item)
 heapq.heappush(heap, (weight, obj))

@@ -150,6 +150,92 @@ q.extendleft([3, 2, 1])
 -3 / -4 = -1 # -> float('-inf')
 ```
 
+## Graph General Traverse
+
+```
+def traverse_generator(G, s, qtype=set):
+    Seen, Q = set(), qtype()
+    Q.add(s)
+    while Q:
+        u = Q.pop()
+        if u in Seen:
+            continue
+        Seen.add(u)
+        for v in G[u]:
+            Q.add(v)
+        yield u
+
+
+def traverse(G, s, qtype=set):
+    Seen, Q = set(), qtype()
+    Q.add(s)
+    while Q:
+        u = Q.pop()
+        if u in Seen:
+            continue
+        Seen.add(u)
+        for v in G[u]:
+            Q.add(v)
+    return Seen
+
+G = {
+    'a': ['b', 'c', 'd'],
+    'b': ['a', 'd'],
+    ...
+    ...
+}
+
+
+print list(traverse_generator(G, 'a'))
+print traverse(G, 'a')
+
+class stack(list):
+    add = list.append
+
+print list(traverse_generator(G, 'a', stack))
+```
+
+
+## Graph Commponents
+```
+def components(G):
+    def walk(s, F=set()):
+        P, Q = dict(), set()
+        P[s] = None
+        Q.add(s)
+        while Q:
+            u = Q.pop()
+            for v in G[u].difference(P, F):
+                Q.add(v)
+                P[v] = u
+        return P
+
+    comp = []
+    seen = set()
+    for u in G:
+        if u in seen:
+            continue
+        C = walk(u)
+        seen.update(C)
+        comp.append(C)
+    return comp
+
+
+G = {
+    'a': {'b', 'c', 'd'},
+    'b': {'a', 'd'},
+    'c': {'a', 'd'},
+    'd': {'a', 'b', 'c'},
+    'e': {'f', 'g'},
+    'f': {'e', 'g'},
+    'g': {'f', 'e'},
+    'h': {'i'},
+    'i': {'h'}
+}
+
+print components(G)
+```
+
 ## heapq
 
 ```

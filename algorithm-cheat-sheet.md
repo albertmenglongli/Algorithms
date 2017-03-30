@@ -240,9 +240,11 @@ print components(G)
 
 ```
 import heapq
+# heap is a list
 heapq.heapify(heap)
 heappush(heap, item)
 heapq.heappush(heap, (weight, obj))
+heap[0] # peek: the element at idx 0 is always the smallest
 heapq.heappop()
 heapq.nlargest(n, iterable[, key])
 heapq.nsmallest(n, iterable[, key])

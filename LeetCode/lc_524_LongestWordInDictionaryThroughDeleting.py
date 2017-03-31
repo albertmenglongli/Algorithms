@@ -24,7 +24,8 @@ class Solution(object):
 
         # add empty string in case the d is empty,
         # two comparison key, first -len(x), then x lexicographical order
-        return sorted(filter(inner, d) + [''], key=lambda x: (-len(x), x))[0]
+        first_longest_word = lambda lst: lst[0]
+        return first_longest_word(sorted(filter(inner, d) + [''], key=lambda x: (-len(x), x)))
 
 
 s = "abpcplea"

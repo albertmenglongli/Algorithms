@@ -97,14 +97,10 @@ def memo(func):
     import json
     import hashlib
     try:
-        # for python3.x
         from inspect import signature
     except ImportError:
-        # for python2.x, need external dependency
         from funcsigs import signature
 
-    # the cache could be any caches
-    # for instance: django's LocMemCache cache or redis cache
     cache = {}
 
     def wrap(*args, **kwargs):
@@ -125,6 +121,13 @@ from collections import defaultdict
 tree = lambda: defaultdict(tree)
 root = tree()
 root['a']['b'] = 'xx'
+```
+
+defaultdict with customised value(not the default one from type)
+
+```
+from collections import defaultdict
+d = defaultdict(lambda: -1, {})
 ```
 
 ## dict

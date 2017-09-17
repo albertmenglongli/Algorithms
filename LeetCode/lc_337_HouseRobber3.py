@@ -26,7 +26,7 @@ def main():
     root.right = T(5)
     root.right.right = T(1)
 
-    print Solution().rob(root)
+    print(Solution().rob(root))
 
 
 if __name__ == '__main__':

@@ -35,5 +35,5 @@ def reverse_k_nodes(head, k):
 
 
 head = generate_linked_list(range(1, 10))
-print head
-print reverse_k_nodes(head, 3)
+print(head)
+print(reverse_k_nodes(head, 3))

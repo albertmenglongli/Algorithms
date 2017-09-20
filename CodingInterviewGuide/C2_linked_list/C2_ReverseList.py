@@ -48,5 +48,5 @@ def reverse_list_with_comments(head):
 
 values = [1, 2, 3, 4, 5]
 head = generate_linked_list(values)
-print head
-print reverse_list(head)
+print(head)
+print(reverse_list(head))

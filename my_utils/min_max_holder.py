@@ -1,25 +1,8 @@
-import functools
 import abc
 
+from my_utils.common_utils import coroutine
+
 __all__ = ['MinHolder', 'MaxHolder']
-
-
-def coroutine(skip=1):
-    def inner_coroutine(func):
-        """
-        this decorator will run the first next of the generator
-        """
-
-        @functools.wraps(func)
-        def wrapper(*args, **kwargs):
-            generator = func(*args, **kwargs)
-            for _ in range(skip):
-                next(generator)
-            return generator
-
-        return wrapper
-
-    return inner_coroutine
 
 
 @coroutine()

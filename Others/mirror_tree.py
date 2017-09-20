@@ -98,7 +98,7 @@ def generate_mirror_tree(root):
 if __name__ == "__main__":
     root = generate_tree()
     mirror_tree = generate_mirror_tree(root)
-    print pre_order(mirror_tree)
+    print(pre_order(mirror_tree))
     # [8, 10, 11, 9, 6, 7, 5]
-    print in_order(mirror_tree)
+    print(in_order(mirror_tree))
     # [11, 10, 9, 8, 7, 6, 5]

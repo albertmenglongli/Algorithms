@@ -104,5 +104,5 @@ def parse(s):
 
     return result
 
-print '{track=lml, fullname=menglonglee} =>', parse('{track=lml, fullname=menglonglee}')
-print '{track={inside1=value1, inside2={inside3=value3}}, fullname=menglonglee} =>', parse('{track={inside1=value1, inside2={inside3=value3}}, fullname=menglonglee}')
+print('{track=lml, fullname=menglonglee} =>', parse('{track=lml, fullname=menglonglee}'))
+print('{track={inside1=value1, inside2={inside3=value3}}, fullname=menglonglee} =>', parse('{track={inside1=value1, inside2={inside3=value3}}, fullname=menglonglee}'))

@@ -5,7 +5,7 @@ from my_utils.common_utils import coroutine
 __all__ = ['MinHolder', 'MaxHolder']
 
 
-@coroutine()
+@coroutine
 def minimize():
     current = yield
     while True:
@@ -13,7 +13,7 @@ def minimize():
         current = min(value, current)
 
 
-@coroutine()
+@coroutine
 def maximum():
     current = yield
     while True:

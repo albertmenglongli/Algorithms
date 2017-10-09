@@ -348,3 +348,45 @@ while True:
     if not expression:
         break
 ```
+
+## tail-call-optimized
+
+```
+import sys
+from functools import wraps
+
+
+class TailRecurseException(Exception):
+    def __init__(self, args, kwargs):
+        self.args = args
+        self.kwargs = kwargs
+
+
+def tail_call_optimized(func):
+
+    @wraps(func)
+    def inner_wrapper(*args, **kwargs):
+        f = sys._getframe()
+        if f.f_back and f.f_back.f_back and f.f_back.f_back.f_code == f.f_code:
+            raise TailRecurseException(args, kwargs)
+        else:
+            while 1:
+                try:
+                    return func(*args, **kwargs)
+                except TailRecurseException as e:
+                    args = e.args
+                    kwargs = e.kwargs
+
+    return inner_wrapper
+
+
+@tail_call_optimized
+def factorial(n, acc=1):
+    if n == 0:
+        return acc
+    return factorial(n - 1, n * acc)
+
+
+print(factorial(10001))
+
+```

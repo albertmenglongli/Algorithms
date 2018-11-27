@@ -19,6 +19,26 @@ class Solution:
             result += ''.join(s[idx] for idx in ordered_positions)
         return result
 
+class Solution2:
+    def convert(self, s, numRows):
+        step = numRows * 2 - 2
+        anchors = [i * step for i in range(0, step + 1)]
+        result = ''
+
+        # using a generator to avoid introducing itertools.chain
+        def generate_positions(anchors, offset, start, end):
+            for anchor in anchors:
+                if start <= anchor - offset < end:
+                    yield anchor - offset
+                if start <= anchor + offset < end:
+                    yield anchor + offset
+
+        for i in range(numRows):
+            positions_set = set(generate_positions(anchors, i, 0, len(s)))
+            ordered_positions = sorted(positions_set)
+            result += ''.join(s[idx] for idx in ordered_positions)
+        return result
+
 
 if __name__ == '__main__':
     assert Solution().convert("PAYPALISHIRING", 3) == 'PAHNAPLSIIGYIR'

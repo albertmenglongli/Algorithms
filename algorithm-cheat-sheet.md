@@ -19,6 +19,19 @@ import numpy as np
 table = np.zeros((n, m), int)
 ```
 
+## almost equal
+
+```
+def almost_equal(x, y, places=7):
+    return round(abs(x - y), places) == 0
+```
+
+## max float
+
+```
+inf = float('inf')
+```
+
 ## bisect/ bisearch
 
 ```

@@ -50,7 +50,7 @@ def max_perm_readable(M):
     count = defaultdict(int)
     for k, v in Counter(M).items():
         count[k] = v
-    Q = filter(lambda i: count[i] == 0, A)
+    Q = list(filter(lambda i: count[i] == 0, A))
     while Q:
         useless_elt = Q.pop()
         A.remove(useless_elt)
@@ -63,11 +63,12 @@ def max_perm_readable(M):
 
 def main():
     M = [2, 2, 0, 5, 3, 5, 7, 4]
-    print naive_max_perm(M)
+    print(naive_max_perm(M))
     # >> set([0, 2, 5])
-    print max_perm_itor(M)
-    print max_perm(M)
-    print max_perm_readable(M)
+    print(max_perm_itor(M))
+    print(max_perm(M))
+    print(max_perm_readable(M))
+
 
 if __name__ == '__main__':
     main()

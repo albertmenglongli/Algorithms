@@ -72,7 +72,6 @@ def draw_G(raw_G):
     # generate postscript output by default from http://matplotlib.org/faq/usage_faq.html#what-is-a-backend
     matplotlib.use('PS')
     import matplotlib.pyplot as plt
-    import pylab
     G = nx.DiGraph()
     G.add_nodes_from(raw_G.keys())
     G.add_edges_from([(u, v) for u in raw_G for v in raw_G[u]], weight=1)
@@ -87,7 +86,7 @@ def draw_G(raw_G):
 
 if __name__ == "__main__":
     raw_G = generate_G()
-    print scc(raw_G)
+    print(scc(raw_G))
     # [set(['a', 'c', 'b', 'd']), set(['e', 'g', 'f']), set(['i', 'h'])]
     
     #draw_G(raw_G)

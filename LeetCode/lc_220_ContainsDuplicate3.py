@@ -47,4 +47,4 @@ class Solution(object):
 nums = [-3, 0]
 k = 2
 t = 4
-print Solution().containsNearbyAlmostDuplicate(nums, k, t)
+print(Solution().containsNearbyAlmostDuplicate(nums, k, t))

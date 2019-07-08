@@ -19,6 +19,14 @@ import numpy as np
 table = np.zeros((n, m), int)
 ```
 
+## divmod
+
+divmod(X, Y)
+
+return a tuple (X / Y, X % Y)
+
+Both Py3 and Py2
+
 ## almost equal
 
 ```

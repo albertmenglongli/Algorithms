@@ -27,17 +27,18 @@ class Obj(object):
         return self.val
 
 
-
 def main():
     import random
-    lst = range(0, 100) + range(0, 100)
+    lst = list(range(0, 100)) + list(range(0, 100))
     random.shuffle(lst)
-    print counting_sort(lst)
-    print counting_sort_int(lst)
+    print(counting_sort(lst))
+    print(counting_sort_int(lst))
     lst = [Obj(3), Obj(4), Obj(3)]
-    sorted_objs = counting_sort(lst, key=lambda x :x.val)
+    sorted_objs = counting_sort(lst, key=lambda x: x.val)
     for obj in sorted_objs:
-        print obj.val
+        print(obj.val)
     # >> 3 3 4
+
+
 if __name__ == '__main__':
     main()

@@ -14,4 +14,5 @@ class Solution(object):
             table[ord(value) - ord('a')] = max(table[ord(value) - ord('a')], cur_max)
         return sum(table)
 
-print Solution().findSubstringInWraproundString("zab")
+
+print(Solution().findSubstringInWraproundString("zab"))

@@ -23,7 +23,7 @@ class Solution(object):
 
 
 def main():
-    print Solution().twoSum(nums=[0,4,3,0], target=0)
+    print(Solution().twoSum(nums=[0,4,3,0], target=0))
 
 if __name__ == '__main__':
     main()

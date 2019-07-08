@@ -15,4 +15,4 @@ class Solution:
         return True if z % x == 0 and z <= max else False
 
 
-print Solution().canMeasureWater(6, 9, 300)
+print(Solution().canMeasureWater(6, 9, 300))

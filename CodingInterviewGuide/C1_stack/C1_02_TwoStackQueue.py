@@ -50,7 +50,7 @@ s.add(3)
 s.add(4)
 s.add(5)
 
-# print s.peek()
+# print(s.peek())
 print(s.poll())
 print(s.poll())
 print(s.poll())

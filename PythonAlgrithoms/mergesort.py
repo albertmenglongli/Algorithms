@@ -15,4 +15,4 @@ def mergesort(seq):
 
 if __name__ == "__main__":
     seq = [5, 2, 8, 1]
-    print mergesort(seq)
+    print(mergesort(seq))

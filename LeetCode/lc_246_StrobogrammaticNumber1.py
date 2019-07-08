@@ -31,4 +31,4 @@ class Solution(object):
             return True
 
 
-print Solution().isStrobogrammatic('11')
+print(Solution().isStrobogrammatic('11'))

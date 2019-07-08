@@ -42,6 +42,6 @@ class Solution(object):
         return array[n]
 
 
-print Solution().f(13)
-print Solution().f_memo(13)
-print Solution().f_bottom_up_dp(13)
+print(Solution().f(13))
+print(Solution().f_memo(13))
+print(Solution().f_bottom_up_dp(13))

@@ -17,7 +17,7 @@ class Solution(object):
 
 def main():
     board = ["X..X", "...X", "...X"]
-    print Solution().countBattleships(board)
+    print(Solution().countBattleships(board))
 
 
 if __name__ == '__main__':

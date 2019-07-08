@@ -36,7 +36,7 @@ while filter(lambda x: x.proposal is None, men):
             m.proposal = w
 
 for m in sorted(men, key=attrgetter('name')):
-    print m, '<-->', m.proposal
+    print(m, '<-->', m.proposal)
 
 walk(lambda x: x.reset(), men)
 walk(lambda x: x.reset(), women)

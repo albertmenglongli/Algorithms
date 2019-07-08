@@ -22,13 +22,13 @@ class Solution(object):
         self.cnt += 1
         points_to_union = []
         if y - 1 >= 0 and self.table[x][y - 1] is not None:
-            points_to_union.append([x, y-1])
+            points_to_union.append([x, y - 1])
         if y + 1 < self.n and self.table[x][y + 1] is not None:
-            points_to_union.append([x, y+1])
+            points_to_union.append([x, y + 1])
         if x - 1 >= 0 and self.table[x - 1][y] is not None:
-            points_to_union.append([x-1, y])
+            points_to_union.append([x - 1, y])
         if x + 1 < self.m and self.table[x + 1][y] is not None:
-            points_to_union.append([x+1, y])
+            points_to_union.append([x + 1, y])
         if points_to_union:
             self.union(p, points_to_union[0])
             if len(points_to_union) >= 2:
@@ -52,5 +52,5 @@ class Solution(object):
             self.table[p1_root[0]][p1_root[1]] = p2_root
 
 
-print Solution().numIslands2(m=3, n=3, positions=[[0, 0], [0, 1], [1, 2], [2, 1]])
-print Solution().numIslands2(3, 3, [[0, 1], [1, 2], [2, 1], [1, 0], [0, 2], [0, 0], [1, 1]])
+print(Solution().numIslands2(m=3, n=3, positions=[[0, 0], [0, 1], [1, 2], [2, 1]]))
+print(Solution().numIslands2(3, 3, [[0, 1], [1, 2], [2, 1], [1, 0], [0, 2], [0, 0], [1, 1]]))

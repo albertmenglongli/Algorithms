@@ -7,7 +7,7 @@ class Solution(object):
         if not nums or len(nums) < 2:
             return []
 
-        print nums
+        print(nums)
         product_of_left_list = [1]
         for i in range(1, len(nums)):
             product_of_left_list.append(nums[i - 1] * product_of_left_list[i - 1])
@@ -24,4 +24,4 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    print Solution().productExceptSelf([1, 2, 3, 4])
+    print(Solution().productExceptSelf([1, 2, 3, 4]))

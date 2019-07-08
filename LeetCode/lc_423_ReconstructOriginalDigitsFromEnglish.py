@@ -96,15 +96,15 @@ class Solution2:
 
 
 def main():
-    print Solution().originalDigits("fviefuro")
-    print Solution().originalDigits("zeroonetwothreefourfivesixseveneightnine")
+    print(Solution().originalDigits("fviefuro"))
+    print(Solution().originalDigits("zeroonetwothreefourfivesixseveneightnine"))
 
     s1 = "fviefuro"
-    print s1
-    print Solution2().originalDigits(s1)
+    print(s1)
+    print(Solution2().originalDigits(s1))
     s2 = "zeroonetwothreefourfivesixseveneightnine"
-    print s2
-    print Solution2().originalDigits(s2)
+    print(s2)
+    print(Solution2().originalDigits(s2))
 
 
 if __name__ == '__main__':

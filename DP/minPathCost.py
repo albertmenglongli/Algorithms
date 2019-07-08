@@ -55,6 +55,6 @@ cost = [[1, 3, 5, 8],
         [4, 3, 2, 3],
         ]
 
-print SolutionRecursionMemo().min_path_cost(cost, len(cost) - 1, len(cost[0]) - 1)
-print SolutionRecursion().min_path_cost(cost, len(cost) - 1, len(cost[0]) - 1)
-print SolutionBottomUpDP().min_path_cost(cost, len(cost) - 1, len(cost[0]) - 1)
+print(SolutionRecursionMemo().min_path_cost(cost, len(cost) - 1, len(cost[0]) - 1))
+print(SolutionRecursion().min_path_cost(cost, len(cost) - 1, len(cost[0]) - 1))
+print(SolutionBottomUpDP().min_path_cost(cost, len(cost) - 1, len(cost[0]) - 1))

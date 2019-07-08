@@ -54,7 +54,7 @@ class Solution(object):
 def main():
     gas = [2,4]
     cost = [3,4]
-    print Solution().canCompleteCircuit(gas=gas, cost=cost)
+    print(Solution().canCompleteCircuit(gas=gas, cost=cost))
 
 
 if __name__ == '__main__':

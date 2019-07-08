@@ -8,6 +8,7 @@ def ins_sort_rec(seq, i):
         seq[j - 1], seq[j] = seq[j], seq[j - 1]
         j -= 1
 
+
 # non-recursive version
 def ins_sort(seq):
     for i in range(0, len(seq)):
@@ -23,11 +24,11 @@ def main():
 
     random.shuffle(lst)
     ins_sort_rec(lst, 99)
-    print lst
+    print(lst)
 
     random.shuffle(lst)
     ins_sort(lst)
-    print lst
+    print(lst)
 
 
 if __name__ == '__main__':

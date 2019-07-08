@@ -55,10 +55,9 @@ def main():
         'e': ['f'],
 
     }
-    print naive_topsort(G)
-    print topsort(G)
-    print dfs_topsort(G)
-    pass
+    print(naive_topsort(G))
+    print(topsort(G))
+    print(dfs_topsort(G))
 
 
 if __name__ == "__main__":

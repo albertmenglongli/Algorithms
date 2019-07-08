@@ -82,4 +82,4 @@ class Solution(object):
 s = "2*3-4*5"
 # s = "2-1-1"
 # s = "0"
-print Solution().diffWaysToCompute(s)
+print(Solution().diffWaysToCompute(s))

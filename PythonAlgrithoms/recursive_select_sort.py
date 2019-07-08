@@ -26,11 +26,12 @@ def main():
 
     random.shuffle(lst)
     sel_sort_rec(lst, 99)
-    print lst
+    print(lst)
 
     random.shuffle(lst)
     sel_sort(lst)
-    print lst
+    print(lst)
+
 
 if __name__ == '__main__':
     main()

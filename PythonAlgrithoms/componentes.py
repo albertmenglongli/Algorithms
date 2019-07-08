@@ -33,4 +33,4 @@ G = {
     'i': {'h'}
 }
 
-print components(G)
+print(components(G))

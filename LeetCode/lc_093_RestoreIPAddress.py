@@ -11,7 +11,7 @@ def dfs(s, start, step, ip, result):
     >>> ip = ''
     >>> dfs(s, 0, 0, ip, result)
     >>> for r in result:
-    ...    print r
+    ...    print(r)
     ...
     255.255.11.135
     255.255.111.35

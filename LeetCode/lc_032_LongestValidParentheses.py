@@ -25,4 +25,4 @@ class Solution(object):
         return global_longest_cnt
 
 
-print Solution().longestValidParentheses("()(()")
+print(Solution().longestValidParentheses("()(()"))

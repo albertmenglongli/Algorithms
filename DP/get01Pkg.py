@@ -1,6 +1,7 @@
 import numpy as np
 
-def getBagMatrix(weights,values,pkgMaxCapacity):
+
+def getBagMatrix(weights, values, pkgMaxCapacity):
     """
     This function generate bag matrix values like this,
     given :
@@ -28,22 +29,24 @@ def getBagMatrix(weights,values,pkgMaxCapacity):
     for currPkgCapacity in range(1, pkgMaxCapacity + 1):
         for idx, (itemWeight, itemValue) in enumerate(zip(weights, values)):
             if currPkgCapacity < itemWeight:
-                if idx > 0 :
+                if idx > 0:
                     bagMatrix[idx][currPkgCapacity] = bagMatrix[idx - 1][currPkgCapacity]
             else:
-                if idx == 0 :
+                if idx == 0:
                     bagMatrix[idx][currPkgCapacity] = itemValue
                 else:
                     bagMatrix[idx][currPkgCapacity] = max(bagMatrix[idx - 1][currPkgCapacity],
                                                           bagMatrix[idx - 1][currPkgCapacity - itemWeight] + itemValue)
     return bagMatrix
 
+
 def main():
     weights = [2, 2, 6, 5, 4]
     values = [6, 3, 5, 4, 6]
     pkgMaxCapacity = 10
     bagMatrix = getBagMatrix(weights, values, pkgMaxCapacity)
-    print bagMatrix[-1][-1]
+    print(bagMatrix[-1][-1])
+
 
 if __name__ == "__main__":
     main()

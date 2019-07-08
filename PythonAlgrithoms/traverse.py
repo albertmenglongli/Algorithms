@@ -23,6 +23,7 @@ def traverse(G, s, qtype=set):
             Q.add(v)
     return Seen
 
+
 G = {
     'a': ['b', 'c', 'd'],
     'b': ['a', 'd'],
@@ -33,8 +34,11 @@ G = {
     'g': ['e']
 }
 
-print list(traverse_generator(G, 'a'))
+print(list(traverse_generator(G, 'a')))
+
+
 class stack(list):
     add = list.append
 
-print list(traverse_generator(G, 'a', stack))
+
+print(list(traverse_generator(G, 'a', stack)))

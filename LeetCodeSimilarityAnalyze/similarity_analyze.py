@@ -21,11 +21,11 @@ data = {k: set(v) for k, v in data.items()}
 companies = data.keys()
 
 for p1, p2 in itertools.combinations(companies, 2):
-    print p1, p2, ':'
-    print compute_jaccard_index(data[p1], data[p2])
-    print
+    print(p1, p2, ':')
+    print(compute_jaccard_index(data[p1], data[p2]))
+    print()
 
 numbers = []
 for k, v in data.items():
     numbers.extend(list(v))
-print Counter(numbers)
+print(Counter(numbers))

@@ -26,4 +26,4 @@ class Solution(object):
         return 0
 
 
-print Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2)
+print(Solution().computeArea(-3, 0, 3, 4, 0, -1, 9, 2))

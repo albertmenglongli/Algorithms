@@ -7,11 +7,11 @@ class Solution(object):
                 length = idx + 1
                 if length <= i:
                     max_arr[i] = max(max_arr[i], max_arr[i - length] + value)
-        print max_arr
+        print(max_arr)
         return max(max_arr)
 
 
 values = [1, 5, 8, 9, 10, 17, 17, 20]
 n = 8
 
-print Solution().cut_rod(values, n)
+print(Solution().cut_rod(values, n))

@@ -19,4 +19,4 @@ def get_count_string(s):
         return ''
 
 
-print get_count_string('aaabbadddffc')
+print(get_count_string('aaabbadddffc'))

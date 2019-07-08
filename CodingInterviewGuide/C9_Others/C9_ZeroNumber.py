@@ -9,4 +9,4 @@ def zero_number(n):
 
 
 # how many zeros 10! contains
-print zero_number(10)
+print(zero_number(10))

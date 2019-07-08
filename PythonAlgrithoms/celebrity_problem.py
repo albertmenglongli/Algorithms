@@ -59,9 +59,9 @@ def main():
         G[i][c] = 1
         G[c][i] = 0
 
-    # print c
-    # print naive_celeb(G)
-    print celeb(G)
+    # print(c)
+    # print(naive_celeb(G))
+    print(celeb(G))
 
 
 if __name__ == '__main__':

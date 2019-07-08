@@ -14,9 +14,10 @@ class Solution(object):
 
 
 def main():
-    print Solution().lengthOfLongestSubstring("pwwkew")
-    print Solution().lengthOfLongestSubstring("abcabcbb")
-    print Solution().lengthOfLongestSubstring("bpfbhmipx")
+    print(Solution().lengthOfLongestSubstring("pwwkew"))
+    print(Solution().lengthOfLongestSubstring("abcabcbb"))
+    print(Solution().lengthOfLongestSubstring("bpfbhmipx"))
+
 
 if __name__ == '__main__':
     main()

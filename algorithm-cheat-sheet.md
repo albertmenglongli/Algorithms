@@ -201,7 +201,7 @@ q.extendleft([3, 2, 1])
 ## division
 
 ```
--3 / -4 = -1 # -> float('-inf')
+-3 / 4 = -1 # -> float('-inf')
 ```
 
 ## Graph General Traverse

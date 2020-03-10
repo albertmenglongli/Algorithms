@@ -19,6 +19,9 @@ class Point(object):
     def __eq__(self, other):
         return self is other or isinstance(other, Point) and self.x == other.x and self.y == other.y
 
+    def __hash__(self):
+        return hash(repr(self))
+
 
 def distance_calculation_memoize(function):
     memo = {}
@@ -86,11 +89,14 @@ def closest_pair(points):
             (p1, p2) = closest_pair_rec(left_points)
             (q1, q2) = closest_pair_rec(right_points)
 
-            pair_of_points, min_value = ((p1, p2), dis(p1, p2)) if dis(p1, p2) < dis(q1, q2) else ((q1, q2), dis(q1, q2))
+            pair_of_points, min_value = ((p1, p2), dis(p1, p2)) if dis(p1, p2) < dis(q1, q2) else (
+                (q1, q2), dis(q1, q2))
 
-            # find the leftmost and rightmost points indexes within the middle part, with width of 2 * min_value, each min_value for each part
+            # find the leftmost and rightmost points indexes within the middle part, with width of 2 * min_value,
+            # each min_value for each part
             # taking advantage of the sorted points ordered by x-coordinate
-            # using customized bisect due to the build-in bisect do not support comparison key, the second parameter is temporary Point if I wanna insert.
+            # using customized bisect due to the build-in bisect do not support comparison key,
+            # the second parameter is temporary Point if I wanna insert.
             leftmost_idx = bisect_left(points, Point(points[mid_idx].x - min_value, 0), 0, mid_idx, lambda p: p.x)
             rightmost_idx = bisect_left(points, Point(points[mid_idx].x + min_value, 0), mid_idx, key=lambda p: p.x)
 
@@ -110,7 +116,8 @@ def closest_pair(points):
 
 def main():
     # in this algorithm, we assume that there's no two points having the same x-coordinate or y-coordinate
-    points = [(0, 0), (7, 6), (2, 20), (12, 5), (16, 16), (5, 8), (19, 7), (14, 22), (8, 19), (7, 29), (10, 11), (1, 13)]
+    points = [(0, 0), (7, 6), (2, 20), (12, 5), (16, 16), (5, 8), (19, 7),
+              (14, 22), (8, 19), (7, 29), (10, 11), (1, 13)]
     print(closest_pair(points))
     # (Point(x=5, y=8), Point(x=7, y=6))
 

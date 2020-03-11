@@ -22,7 +22,7 @@ def sel_sort(seq):
 
 def main():
     import random
-    lst = range(0, 100)
+    lst = list(range(0, 100))
 
     random.shuffle(lst)
     sel_sort_rec(lst, 99)

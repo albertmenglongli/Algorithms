@@ -304,6 +304,8 @@ heapq.nlargest(n, iterable[, key])
 heapq.nsmallest(n, iterable[, key])
 heapq.heappushpop(h, item) # push, then pop
 heapq.heapreplace(h, item) # pop, then push
+
+heapq.merge(*iterables) # each iterable must be sorted, used for mergesort.
 ```
 
 ## math

@@ -15,8 +15,18 @@ def huffman(seq, frq):
     return trees[0][-1]
 
 
+def codes(tree, prefix=""):
+    if len(tree) == 1:
+        yield (tree, prefix)
+        return
+    for bit, child in zip("01", tree):
+        yield from codes(child, prefix + bit)
+
+
 if __name__ == '__main__':
     seq = "abcdefghi"
     frq = [4, 5, 6, 9, 11, 12, 15, 16, 20]
-    res = huffman(seq, frq)
-    print(res)
+    tree = huffman(seq, frq)
+    print(tree)
+    for code in codes(tree):
+        print(code)

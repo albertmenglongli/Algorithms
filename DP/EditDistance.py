@@ -32,7 +32,6 @@ def edit_distance_dp(str1, str2):
             else:
                 EditD[j][i] = min(EditD[j - 1][i - 1], EditD[j][i - 1], EditD[j - 1][i]) + 1
 
-    print(EditD)
     return EditD[l2][l1]
 
 

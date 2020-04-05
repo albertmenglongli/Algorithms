@@ -290,6 +290,20 @@ G = {
 print components(G)
 ```
 
+## dijkstra
+
+```
+def idijkstra(G, s):
+    Q, S = [(0, s)], set()
+    while Q:
+        d, u = heappop(Q)
+        if u in S: continue
+        S.add(u)
+        yield u, d
+        for v in G[u]:
+            heappush(Q, (d + G[u][v], v))
+```
+
 ## heapq
 
 ```
@@ -343,7 +357,7 @@ s.remove(item)
 s.discard(item) # remove if exist else do nothing
 s.difference(*iterables) # -
 s.difference_update(*iterables)
-s.intersection(*iterables) # +
+s.intersection(*iterables)
 ```
 
 ## sort

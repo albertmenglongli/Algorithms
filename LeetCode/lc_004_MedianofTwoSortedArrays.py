@@ -11,13 +11,13 @@ class Solution:
         x = len(nums1)
         y = len(nums2)
 
-        low = 0
-        high = x
+        xMinCount = 0
+        xMaxCount = x
 
-        while low <= high:
-            partitionX = (low + high) // 2
+        while xMinCount <= xMaxCount:
+            partitionX = (xMinCount + xMaxCount) // 2
             partitionY = (x + y + 1) // 2 - partitionX
-            
+
             maxLeftX = float('-inf') if partitionX == 0 else nums1[partitionX - 1]
             minRightX = float('inf') if partitionX == x else nums1[partitionX]
             maxLeftY = float('-inf') if partitionY == 0 else nums2[partitionY - 1]
@@ -29,6 +29,9 @@ class Solution:
                 else:
                     return max(maxLeftX, maxLeftY)
             elif maxLeftX > minRightY:
-                high = partitionX - 1
+                xMaxCount = partitionX - 1
             else:
-                low = partitionX + 1
+                xMinCount = partitionX + 1
+
+# for better understanding
+# https://medium.com/@hazemu/finding-the-median-of-2-sorted-arrays-in-logarithmic-time-1d3f2ecbeb46

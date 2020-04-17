@@ -366,6 +366,29 @@ s.intersection(*iterables)
 a = range(5, -1, -1)
 a.sort()  # sort in-place
 b = sorted(a)  # return a new sorted list
+
+from functools import cmp_to_key
+
+
+def cmp_func(a, b):
+
+    if a['score'] < b['score']:
+        return 1
+    elif a['score'] > b['score']:
+        return -1
+
+    if a['age'] < b['age']:
+        return -1
+    elif a['age'] > b['age']:
+        return 1
+
+    return 0
+
+
+arr = [{'score': 100, 'age': 18}, {'score': 100, 'age': 17}, {'score': 89, 'age': 18}]
+arr.sort(key=cmp_to_key(cmp_func))
+# [{'score': 100, 'age': 17}, {'score': 100, 'age': 18}, {'score': 89, 'age': 18}]
+print(arr)
 ```
 
 ## while-loop

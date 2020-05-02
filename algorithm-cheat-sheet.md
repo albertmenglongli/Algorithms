@@ -322,6 +322,18 @@ heapq.heapreplace(h, item) # pop, then push
 heapq.merge(*iterables) # each iterable must be sorted, used for mergesort.
 ```
 
+## PriorityQueue
+
+```
+from queue import PriorityQueue
+que = PriorityQueue()
+que.put(3)
+que.put(2)
+que.put(1)
+que.qsize()
+que.get()
+```
+
 ## math
 
 ```

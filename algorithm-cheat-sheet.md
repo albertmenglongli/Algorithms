@@ -204,6 +204,104 @@ q.extendleft([3, 2, 1])
 -3 / 4 = -1 # -> float('-inf')
 ```
 
+## Tree Traverse
+
+```Python
+# class TreeNode:
+#     def __init__(self, val):
+#         self.val = val
+#         self.left = None
+#         self.right = None
+
+
+# recursive
+def pre_order(root):
+    if root:
+        print(root.val)
+        pre_order(root.left)
+        pre_order(root.right)
+
+
+def in_order(root):
+    if root:
+        in_order(root.left)
+        print(root.val)
+        in_order(root.right)
+
+
+def post_order(root):
+    if root:
+        post_order(root.left)
+        post_order(root.right)
+        print(root.val)
+
+
+# iterative under same template
+def pre_order_iter(root):
+    stack = []
+    node = root
+    while stack or node:
+        while node:
+            print(node.val)
+            stack.append(node)
+            node = node.left
+        node = stack.pop()
+        node = node.right
+
+
+def in_order_iter(root):
+    stack = []
+    node = root
+    while stack or node:
+        while node:
+            stack.append(node)
+            node = node.left
+        node = stack.pop()
+        print(node.val)
+        node = node.right
+
+
+def post_order_iter(root):
+    stack = []
+    res = []
+    node = root
+    while stack or node:
+        while node:
+            res.append(node.val)
+            stack.append(node)
+            node = node.right
+        node = stack.pop()
+        node = node.left
+    return res[::-1]
+
+
+# iterative under another template
+def pre_order_iter(root):
+    if not root: return
+    stack = [root]
+    while stack:
+        node = stack.pop()
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
+        print(node.val)
+
+
+def post_order_iter(root):
+    if not root: return
+    stack = [root]
+    res = []
+    while stack:
+        node = stack.pop()
+        if node.left:
+            stack.append(node.left)
+        if node.right:
+            stack.append(node.right)
+        res.append(node.val)
+    return res[::-1]
+```
+
 ## Graph General Traverse
 
 ```

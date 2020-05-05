@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, key, val, prev=None, next=None):
+    def __init__(self, key=0, val=0, prev=None, next=None):
         self.key = key
         self.val = val
         self.prev = prev
@@ -10,77 +10,56 @@ class LRUCache:
 
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.head = None
-        self.tail = None
+        self.head = Node()
+        self.tail = Node()
+        self.head.next = self.tail
+        self.tail.prev = self.head
         self.cur_num = 0
         self.hash_map = dict()
 
-    def _remove(self, key: int):
-        self.cur_num -= 1
-        node = self.hash_map[key]
+    def add_head(self, node):
+        node.prev = self.head
+        node.next = self.head.next
+        self.head.next.prev = node
+        self.head.next = node
 
-        if node.prev is not None:
-            prev = node.prev
-            prev.next = node.next
-        else:
-            self.head = node.next
+    def remove(self, node):
+        node.prev.next = node.next
+        node.next.prev = node.prev
 
-        if node.next is not None:
-            next = node.next
-            next.prev = node.prev
-        else:
-            self.tail = node.prev
+    def remove_tail(self):
+        node = self.tail.prev
+        self.remove(node)
+        return node
 
-        del node
-        self.hash_map.pop(key, None)
-
-    def _add_head(self, key: int, val) -> Node:
-        new_head = Node(key, val)
-        self.cur_num += 1
-        old_head = self.head
-        if old_head is not None:
-            new_head.next = old_head
-            old_head.prev = new_head
-        else:
-            self.tail = new_head
-        self.head = new_head
-        self.hash_map[key] = new_head
-        return new_head
-
-    def _remove_tail(self):
-        tail = self.tail
-        if tail is not None:
-            self.hash_map.pop(tail.key, None)
-            if tail.prev is not None:
-                tail.prev.next = None
-                self.tail = tail.prev
-                del tail
-            else:
-                self.head = None
-                self.tail = None
-            self.cur_num -= 1
+    def move_to_head(self, node):
+        self.remove(node)
+        self.add_head(node)
 
     def get(self, key: int) -> int:
         val = -1
         if key in self.hash_map:
-            val = self.hash_map[key].val
-            self._remove(key)
-            self._add_head(key, val)
+            node = self.hash_map[key]
+            val = node.val
+            self.move_to_head(node)
         return val
 
     def put(self, key: int, value: int) -> None:
         if self.capacity == 0:
             return
         if key in self.hash_map:
-            self._remove(key)
-            head = self._add_head(key, value)
+            node = self.hash_map[key]
+            node.val = value
+            self.move_to_head(node)
         else:
+            node = Node(key, value)
+            self.hash_map[key] = node
             if self.cur_num < self.capacity:
-                pass
+                self.cur_num += 1
             else:
-                self._remove_tail()
-            head = self._add_head(key, value)
-        self.hash_map[key] = head
+                removed = self.remove_tail()
+                self.hash_map.pop(removed.key, None)
+            self.add_head(node)
 
 
 cache = LRUCache(2)

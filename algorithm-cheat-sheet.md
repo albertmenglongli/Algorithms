@@ -204,7 +204,142 @@ q.extendleft([3, 2, 1])
 -3 / 4 = -1 # -> float('-inf')
 ```
 
-## Tree Traverse
+## heapq
+
+```
+import heapq
+# heap is a list
+heapq.heapify(heap)
+heappush(heap, item)
+heapq.heappush(heap, (weight, obj))
+heap[0] # peek: the element at idx 0 is always the smallest
+heapq.heappop()
+heapq.nlargest(n, iterable[, key])
+heapq.nsmallest(n, iterable[, key])
+heapq.heappushpop(h, item) # push, then pop
+heapq.heapreplace(h, item) # pop, then push
+
+heapq.merge(*iterables) # each iterable must be sorted, used for mergesort.
+```
+
+## PriorityQueue
+
+```
+from queue import PriorityQueue
+que = PriorityQueue()
+que.put(3)
+que.put(2)
+que.put(1)
+que.qsize()
+que.get()
+```
+
+## math
+
+```
+import math
+math.pow(2, 3) # 8
+math.sqrt(4) # 2
+math.ceil(1.3) # 2
+math.floor(1.3) #1
+```
+
+## round
+
+```python
+assert round(2.5) == 2 # ?!?!
+assert round(3.5) == 4
+
+def my_round(x, ndigits=0):
+    assert ndigits >= 0
+    x *= 10 ** (ndigits + 1)
+    if x % 10 >= 5:
+        x = (x // 10 * 10 + 10) / (10 ** (ndigits + 1))
+    else:
+        x = (x // 10 * 10) / (10 ** (ndigits + 1))
+    if ndigits == 0:
+        x = int(x)
+    return x
+```
+
+## OrderedDict
+
+```
+from collections import OrderedDict
+d = OrderedDict()
+d.popitem(last=True)
+```
+
+## random
+
+```
+import random
+random.random() # [0.0, 1.0)
+random.randint(0, 5) # 0, 1, 2, 3, 4
+```
+
+## set
+
+```
+s.update(iterable)
+s.add(item)
+s.remove(item)
+s.discard(item) # remove if exist else do nothing
+s.difference(*iterables) # -
+s.difference_update(*iterables)
+s.intersection(*iterables)
+```
+
+## sort
+
+```
+a = range(5, -1, -1)
+a.sort()  # sort in-place
+b = sorted(a)  # return a new sorted list
+
+from functools import cmp_to_key
+
+
+def cmp_func(a, b):
+
+    if a['score'] < b['score']:
+        return 1
+    elif a['score'] > b['score']:
+        return -1
+
+    if a['age'] < b['age']:
+        return -1
+    elif a['age'] > b['age']:
+        return 1
+
+    return 0
+
+
+arr = [{'score': 100, 'age': 18}, {'score': 100, 'age': 17}, {'score': 89, 'age': 18}]
+arr.sort(key=cmp_to_key(cmp_func))
+# [{'score': 100, 'age': 17}, {'score': 100, 'age': 18}, {'score': 89, 'age': 18}]
+print(arr)
+```
+
+## while-loop
+
+```
+// in Java/C++
+do{
+...
+...
+} while (expression)
+```
+in Python:
+```
+while True:
+    ...
+    ...
+    if not expression:
+        break
+```
+
+## tree traverse
 
 ```Python
 # class TreeNode:
@@ -302,7 +437,7 @@ def post_order_iter(root):
     return res[::-1]
 ```
 
-## Graph General Traverse
+## graph general traverse
 
 ```
 def traverse_generator(G, s, qtype=set):
@@ -400,123 +535,6 @@ def idijkstra(G, s):
         yield u, d
         for v in G[u]:
             heappush(Q, (d + G[u][v], v))
-```
-
-## heapq
-
-```
-import heapq
-# heap is a list
-heapq.heapify(heap)
-heappush(heap, item)
-heapq.heappush(heap, (weight, obj))
-heap[0] # peek: the element at idx 0 is always the smallest
-heapq.heappop()
-heapq.nlargest(n, iterable[, key])
-heapq.nsmallest(n, iterable[, key])
-heapq.heappushpop(h, item) # push, then pop
-heapq.heapreplace(h, item) # pop, then push
-
-heapq.merge(*iterables) # each iterable must be sorted, used for mergesort.
-```
-
-## PriorityQueue
-
-```
-from queue import PriorityQueue
-que = PriorityQueue()
-que.put(3)
-que.put(2)
-que.put(1)
-que.qsize()
-que.get()
-```
-
-## math
-
-```
-import math
-math.pow(2, 3) # 8
-math.sqrt(4) # 2
-math.ceil(1.3) # 2
-math.floor(1.3) #1
-```
-
-## OrderedDict
-
-```
-from collections import OrderedDict
-d = OrderedDict()
-d.popitem(last=True)
-```
-
-## random
-
-```
-import random
-random.random() # [0.0, 1.0)
-random.randint(0, 5) # 0, 1, 2, 3, 4
-```
-
-## set
-
-```
-s.update(iterable)
-s.add(item)
-s.remove(item)
-s.discard(item) # remove if exist else do nothing
-s.difference(*iterables) # -
-s.difference_update(*iterables)
-s.intersection(*iterables)
-```
-
-## sort
-
-```
-a = range(5, -1, -1)
-a.sort()  # sort in-place
-b = sorted(a)  # return a new sorted list
-
-from functools import cmp_to_key
-
-
-def cmp_func(a, b):
-
-    if a['score'] < b['score']:
-        return 1
-    elif a['score'] > b['score']:
-        return -1
-
-    if a['age'] < b['age']:
-        return -1
-    elif a['age'] > b['age']:
-        return 1
-
-    return 0
-
-
-arr = [{'score': 100, 'age': 18}, {'score': 100, 'age': 17}, {'score': 89, 'age': 18}]
-arr.sort(key=cmp_to_key(cmp_func))
-# [{'score': 100, 'age': 17}, {'score': 100, 'age': 18}, {'score': 89, 'age': 18}]
-print(arr)
-```
-
-## while-loop
-
-```
-// in Java/C++
-do{
-...
-...
-} while (expression)
-```
-in Python:
-```
-while True:
-    ...
-    ...
-    if not expression:
-        break
 ```
 
 ## tail-call-optimized

@@ -204,6 +204,13 @@ q.extendleft([3, 2, 1])
 -3 / 4 = -1 # -> float('-inf')
 ```
 
+## bit
+
+```
+x & (-x) # keeps the rightmost 1-bit and sets all the other bits to 0
+x & (x - 1) # change the rightmost 1-bit to 0-bit
+```
+
 ## heapq
 
 ```

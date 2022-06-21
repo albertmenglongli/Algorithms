@@ -2,7 +2,7 @@ decorator==4.0.9
 Gato==1.2.2
 Graphine==0.0
 networkx==1.11
-numpy==1.10.4
+numpy==1.22.0
 autopep8==1.3.3
 pep8==1.7.1
 funcy==1.11

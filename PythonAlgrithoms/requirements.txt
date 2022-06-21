@@ -4,7 +4,7 @@ Gato==1.2.2
 Graphine==0.0
 matplotlib==1.5.3
 networkx==1.11
-numpy==1.10.4
+numpy==1.22.0
 pyparsing==2.1.10
 python-dateutil==2.5.3
 pytz==2016.7
